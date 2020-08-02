@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @user = @book.user
+    @book_new = Book.new
   end
 
   def index
@@ -18,6 +19,7 @@ class BooksController < ApplicationController
       flash[:notice] = "You have creatad book successfully."
       redirect_to book_path(@book.id), notice: "You have created book successfully."
     else
+      @user = User.find(current_user.id)
       @books = Book.all
       render 'index'
     end
