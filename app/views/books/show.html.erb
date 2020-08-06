@@ -59,7 +59,7 @@
 		</table>
 	</div>
 
-	<div class="col-xs-3">
+	<div class="col-xs-9">
 		<table class="table">
 		<% @book.book_comments.each do |book_comment| %>
 		    <% if book_comment.user == current_user %>
@@ -82,9 +82,9 @@
 
 	<div class="col-xs-9">
 		<%= form_for [@book, @book_comment] do |f| %>
-	        <%= f.text_area :comment, class: 'col-xs-10' %>
+	        <%= f.text_area :comment, size: "90x5" %>
 
-	        <%= f.submit "送信" %>
+	        <%= f.submit "送信", class: "btn-sm btn-primary" %>
 	    <% end %>
 	</div>
 </div>
